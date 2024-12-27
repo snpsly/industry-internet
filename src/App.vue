@@ -1,24 +1,40 @@
 <script lang="ts" setup>
 import { useTheme } from "@/hooks/useTheme"
-import { ElNotification } from "element-plus"
 // 将 Element Plus 的语言设置为中文
 import zhCn from "element-plus/es/locale/lang/zh-cn"
-
+import { onMounted } from "vue"
+import ws from "@/utils/websocket"
+import { sha1 } from "js-sha1"
 const { initTheme } = useTheme()
-
+import axios from "axios"
 /** 初始化主题 */
 initTheme()
+let num: any = localStorage.getItem("homeNum")
+!num
+  ? localStorage.setItem("homeNum", "5382")
+  : num > 9000
+    ? localStorage.setItem("homeNum", "5382")
+    : localStorage.setItem("homeNum", (++num).toString())
+// try {
+//   axios
+//     .post("http://zg-yzkj.com:27923/AccountService/Login", {
+//       loginId: "",
+//       tonce: Date.now(),
+//       ciphertext: sha1("0" + Date.now() + "WSDstarenergy@201510"),
+//       faceId: "",
+//       code: "glcnys",
+//       staffName: "13566289621",
+//       password: "0dbd827d7eef5d2183f44f13f0bb8fa8"
+//     })
+//     .then((res) => {
+//       localStorage.setItem("loginId", res.data.LoginID)
+//       // ws.initWebSocket()
+//     })
+// } catch (err) {
+//   console.log(err)
+// }
 
-/** 作者小心思 */
-ElNotification({
-  title: "Hello",
-  type: "success",
-  dangerouslyUseHTMLString: true,
-  message:
-    "<a style='color: teal' target='_blank' href='https://github.com/un-pany/v3-admin-vite'>小项目获取 star 不易，如果你喜欢这个项目的话，欢迎点击这里支持一个 star ！这是作者持续维护的唯一动力（小声：毕竟是免费的）</a>",
-  duration: 0,
-  position: "bottom-right"
-})
+onMounted(() => {})
 </script>
 
 <template>

@@ -6,6 +6,7 @@
 
 /** 基础颜色 */
 html.dark-blue {
+  
   /** color-primary */
   --el-color-primary: #00bb99;
   --el-color-primary-light-3: #00bb99b3;
@@ -76,7 +77,7 @@ html.dark-blue {
   --el-fill-color-blank: #001b44;
   --el-fill-color-extra-light: #001b44;
   /** bg-color */
-  --el-bg-color-page: #001535;
+  --el-bg-color-page: #082540;
   --el-bg-color: #001b44;
   --el-bg-color-overlay: #002359;
   /** mask-color */

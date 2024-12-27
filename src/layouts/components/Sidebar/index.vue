@@ -9,7 +9,7 @@ import Logo from "../Logo/index.vue"
 import { useDevice } from "@/hooks/useDevice"
 import { useLayoutMode } from "@/hooks/useLayoutMode"
 import { getCssVariableValue } from "@/utils"
-
+import { useRouter } from "vue-router"
 const v3SidebarMenuBgColor = getCssVariableValue("--v3-sidebar-menu-bg-color")
 const v3SidebarMenuTextColor = getCssVariableValue("--v3-sidebar-menu-text-color")
 const v3SidebarMenuActiveTextColor = getCssVariableValue("--v3-sidebar-menu-active-text-color")
@@ -20,7 +20,11 @@ const route = useRoute()
 const appStore = useAppStore()
 const permissionStore = usePermissionStore()
 const settingsStore = useSettingsStore()
-
+const router = useRouter()
+const routerList = router.getRoutes()
+const navList = routerList.filter((item) => {
+  return item.name && (item.name as string).includes("manage")
+})
 const activeMenu = computed(() => {
   const {
     meta: { activeMenu },
@@ -63,7 +67,7 @@ const hiddenScrollbarVerticalBar = computed(() => {
         :collapse-transition="false"
         :mode="isTop && !isMobile ? 'horizontal' : 'vertical'"
       >
-        <SidebarItem v-for="route in noHiddenRoutes" :key="route.path" :item="route" :base-path="route.path" />
+        <SidebarItem v-for="route in navList" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
     </el-scrollbar>
   </div>

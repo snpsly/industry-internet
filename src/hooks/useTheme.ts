@@ -46,6 +46,7 @@ const initTheme = () => {
   // watchEffect 来收集副作用
   watchEffect(() => {
     const value = activeThemeName.value
+    // const value = "dark-blue"
     setHtmlRootClassName(value)
     setActiveThemeName(value)
   })

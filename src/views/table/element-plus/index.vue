@@ -9,7 +9,7 @@ import { cloneDeep } from "lodash-es"
 
 defineOptions({
   // 命名当前组件
-  name: "ElementPlus"
+  name: "element-table"
 })
 
 const loading = ref<boolean>(false)

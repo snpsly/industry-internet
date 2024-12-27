@@ -25,7 +25,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       /** 设置 host: true 才可以使用 Network 的形式，以 IP 访问项目 */
       host: true, // host: "0.0.0.0"
       /** 端口号 */
-      port: 3333,
+      port: 7000,
       /** 是否自动打开浏览器 */
       open: false,
       /** 跨域设置允许 */
@@ -34,12 +34,29 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       strictPort: false,
       /** 接口代理 */
       proxy: {
-        "/api/v1": {
-          target: "https://mock.mengxuegu.com/mock/63218b5fb4c53348ed2bc212",
+        "/api": {
+          target: "http://192.168.3.151:7000/",
+          //     target: "http://192.168.3.110:5000/",
+          rewrite: (path) => path.replace(/^\/api/, ""),
+          bypass(req, res, options) {
+            const proxyURL = options.target + (options.rewrite ? options.rewrite(req.url ? req.url : "") : "")
+            res.setHeader("x-req-proxyURL", proxyURL) // 将真实请求地址设置到响应头中
+          },
           ws: true,
           /** 是否允许跨域 */
           changeOrigin: true
         }
+        // "/apis": {
+        //   target: "http://192.168.3.234:27923/",
+        //   rewrite: (path) => path.replace(/^\/api/, ""),
+        //   bypass(req, res, options) {
+        //     const proxyURL = options.target + (options.rewrite ? options.rewrite(req.url ? req.url : "") : "")
+        //     res.setHeader("x-req-proxyURL", proxyURL) // 将真实请求地址设置到响应头中
+        //   },
+        //   ws: true,
+        //   /** 是否允许跨域 */
+        //   changeOrigin: true
+        // }
       },
       /** 预热常用文件，提高初始页面加载速度 */
       warmup: {

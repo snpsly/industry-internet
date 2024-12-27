@@ -16,8 +16,10 @@ import "element-plus/theme-chalk/dark/css-vars.css"
 import "vxe-table/lib/style.css"
 import "vxe-table-plugin-element/dist/style.css"
 import "@/styles/index.scss"
+import ECharts from "vue-echarts"
 
 const app = createApp(App)
+app.component("v-chart", ECharts)
 
 /** 加载插件 */
 loadPlugins(app)

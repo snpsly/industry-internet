@@ -8,7 +8,8 @@ const isTop = computed(() => settingsStore.layoutMode === LayoutModeEnum.Top)
 const isLeftTop = computed(() => settingsStore.layoutMode === LayoutModeEnum.LeftTop)
 
 const setLayoutMode = (mode: LayoutModeEnum) => {
-  settingsStore.layoutMode = mode
+  //settingsStore.layoutMode = mode
+  settingsStore.layoutMode = "left"
 }
 
 export function useLayoutMode() {

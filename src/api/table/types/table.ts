@@ -2,6 +2,7 @@ export interface CreateOrUpdateTableRequestData {
   id?: string
   username: string
   password?: string
+  image?: string | null
 }
 
 export interface GetTableRequestData {
@@ -15,7 +16,7 @@ export interface GetTableRequestData {
   phone?: string
 }
 
-export interface GetTableData {
+export type GetTableData = {
   createTime: string
   email: string
   id: string
@@ -23,7 +24,7 @@ export interface GetTableData {
   roles: string
   status: boolean
   username: string
-}
+} & any
 
 export type GetTableResponseData = ApiResponseData<{
   list: GetTableData[]

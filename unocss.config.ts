@@ -9,7 +9,11 @@ export default defineConfig({
     presetUno()
   ],
   /** 自定义规则 */
-  rules: [["uno-padding-20", { padding: "20px" }]],
+  rules: [
+    ["uno-padding-20", { padding: "20px" }],
+    ["uno-Basics-bgColor", { "background-color": "rgba(11, 165, 150, 1)" }],
+    ["uno-Basics-text-color", { color: "rgba(11, 165, 150, 1)" }]
+  ],
   /** 自定义快捷方式 */
   shortcuts: {
     "uno-wh-full": "w-full h-full",

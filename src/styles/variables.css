@@ -1,6 +1,9 @@
 /** 全局 CSS 变量，这种变量不仅可以在 CSS 和 SCSS 中使用，还可以导入到 JS 中使用 */
 
 :root {
+  --el-bg-color-page:#fff
+  --el-color-primary:#0BA596;
+  --project-color:#0BA596
   /** Body */
   --v3-body-text-color: var(--el-text-color-primary);
   --v3-body-bg-color: var(--el-bg-color-page);
@@ -45,6 +48,22 @@
   --v3-hamburger-text-color: var(--el-text-color-primary);
   /** RightPanel 组件  */
   --v3-rightpanel-button-bg-color: #001428;
+  /* --el-menu-hover-bg-color: #fff;
+   --el-menu-active-color: #fff;
+    --el-menu-text-color: #fff;
+     --el-menu-bg-color: #fff;; */
+     --el-font-family:"PingFang SC"
+     --el-menu-item-font-size:16px !important;
+     --el-color-primary-light-3:rgba(11, 165, 150, .8);
+     --el-color-primary-dark-2:rgba(11, 165, 150, .8);
+     --el-color-primary: #00bb99;
+     --el-menu-horizontal-height:100% !important;
+     --el-box-shadow-light:transparent !important;
+     --el-color-primary-light-9:white;
+     .el-input{
+      --el-input-bg-color:rgba(240,242,242,1) !important;
+
+     }
 }
 
 /** 内容区放大时，将不需要的组件隐藏 */

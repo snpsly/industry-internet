@@ -5,9 +5,6 @@
 // Element Plus
 @import "./element-plus.css";
 @import "./element-plus.scss";
-// Vxe Table
-@import "./vxe-table.css";
-@import "./vxe-table.scss";
 // 注册多主题
 @import "./theme/register.scss";
 // Mixins
@@ -30,8 +27,11 @@ body {
   background-color: var(--v3-body-bg-color);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial,
-    sans-serif;
+  // font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial,
+  //   sans-serif;
+  font-family:"PingFang SC", "PingFang SC";
+  font-weight: 400;
+font-size: 20px;
   @extend %scrollbar;
 }
 
@@ -55,4 +55,36 @@ a:hover {
 
 div:focus {
   outline: none;
+}
+.gradient-text {
+  background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 1), rgba(0, 234, 255, 1), rgba(109, 186, 236, 0.22));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+$base-font-size: 16px;
+
+// 笔记本和台式机屏幕宽度
+// @media screen and (min-width: 768px) and (max-width: 1024px) {
+//   html {
+//     font-size: $base-font-size * 0.8; // 增加字体大小
+//   }
+// }
+
+// @media screen and (min-width: 1025px) and (max-width: 1366px) {
+//   html {
+//     font-size: $base-font-size * 0.8; // 中等笔记本屏幕
+//   }
+// }
+
+@media screen and (min-width: 1367px) and (max-width: 1600px) {
+  html {
+    font-size: $base-font-size * 0.7; // 较大屏幕
+  }
+}
+
+@media screen and (min-width: 1601px) {
+  html {
+    font-size: $base-font-size * 1; // 超大屏幕（桌面）
+  }
 }

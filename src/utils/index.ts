@@ -32,3 +32,7 @@ export const resetConfigLayout = () => {
   removeConfigLayout()
   location.reload()
 }
+
+export const getFileUrl = (url: string) => {
+  return `${import.meta.env.VITE_BASE_API}${url}`
+}
